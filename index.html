@@ -19,7 +19,6 @@
             padding: 20px;
         }
 
-        /* --- CONTENEDOR PRINCIPAL DE 3 COLUMNAS --- */
         .app-wrapper {
             display: flex;
             gap: 20px;
@@ -32,7 +31,7 @@
 
         /* --- COLUMNA IZQUIERDA: PLAYLIST --- */
         .playlist-sidebar {
-            width: 300px;
+            width: 280px;
             flex-shrink: 0;
             background: rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(15px);
@@ -50,300 +49,179 @@
         .playlist-sidebar::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
 
         .playlist-sidebar h3 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #ccc;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: left;
-            padding-left: 5px;
-            flex-shrink: 0;
+            font-size: 14px; font-weight: 600; margin-bottom: 15px;
+            color: #ccc; text-transform: uppercase; letter-spacing: 1px;
+            text-align: left; padding-left: 5px; flex-shrink: 0;
         }
 
         .playlist-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 5px;
-            border-left: 4px solid transparent;
-            flex-shrink: 0;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 12px; border-radius: 10px; cursor: pointer;
+            transition: all 0.2s ease; margin-bottom: 5px;
+            border-left: 4px solid transparent; flex-shrink: 0;
         }
 
         .playlist-item:hover { background: rgba(255, 255, 255, 0.1); }
+        .playlist-item.active { background: rgba(29, 185, 84, 0.2); border-left: 4px solid #1DB954; }
 
-        .playlist-item.active {
-            background: rgba(29, 185, 84, 0.2);
-            border-left: 4px solid #1DB954;
-        }
-
-        .playlist-item .info {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            text-align: left;
-        }
-
-        .playlist-item .title {
-            font-size: 13px;
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .playlist-item .artist {
-            font-size: 11px;
-            color: #aaa;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .playlist-item .playlist-play-icon {
-            font-size: 14px;
-            color: #1DB954;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        
-        .playlist-item.active .playlist-play-icon,
-        .playlist-item:hover .playlist-play-icon {
-            opacity: 1;
-        }
+        .playlist-item .info { display: flex; flex-direction: column; overflow: hidden; text-align: left; }
+        .playlist-item .title { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .playlist-item .artist { font-size: 11px; color: #aaa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .playlist-item .playlist-play-icon { font-size: 14px; color: #1DB954; opacity: 0; transition: opacity 0.2s; }
+        .playlist-item.active .playlist-play-icon, .playlist-item:hover .playlist-play-icon { opacity: 1; }
 
         /* --- COLUMNA CENTRAL: REPRODUCTOR --- */
         .main-player {
-            flex: 0 0 450px; 
+            flex: 0 0 420px; 
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 30px;
             padding: 25px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
             position: relative;
         }
 
-        /* --- BARRA DE GÉNEROS --- */
         .genre-bar {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            right: 25px;
-            display: flex;
-            overflow-x: auto;
-            gap: 8px;
-            padding-bottom: 12px;
+            position: absolute; top: 25px; left: 25px; right: 25px;
+            display: flex; overflow-x: auto; gap: 8px; padding-bottom: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            scrollbar-width: thin;
-            scrollbar-color: #1DB954 rgba(255,255,255,0.05);
+            scrollbar-width: thin; scrollbar-color: #1DB954 rgba(255,255,255,0.05);
         }
-        
         .genre-bar::-webkit-scrollbar { height: 4px; }
         .genre-bar::-webkit-scrollbar-thumb { background: #1DB954; border-radius: 10px; }
         .genre-bar::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
 
         .genre-pill {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white; padding: 6px 14px; border-radius: 20px;
+            font-family: 'Poppins', sans-serif; font-size: 12px; cursor: pointer;
+            white-space: nowrap; transition: all 0.3s ease; flex-shrink: 0;
         }
         .genre-pill:hover { background: rgba(29, 185, 84, 0.4); border-color: #1DB954; }
-        .genre-pill.active {
-            background: #1DB954;
-            border-color: #1DB954;
-            font-weight: 600;
-            box-shadow: 0 0 15px rgba(29, 185, 84, 0.6);
-        }
+        .genre-pill.active { background: #1DB954; border-color: #1DB954; font-weight: 600; box-shadow: 0 0 15px rgba(29, 185, 84, 0.6); }
 
-        /* --- REPRODUCTOR CENTRAL --- */
-        .player-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 60px;
-        }
+        .player-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 60px; }
 
-        .album-art-container {
-            position: relative;
-            width: 220px;
-            height: 220px;
-            margin-bottom: 20px;
-        }
-
-        .album-art {
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s ease;
-            background-color: #333;
-        }
-
-        .main-player.playing .album-art {
-            animation: spin 20s linear infinite;
-            box-shadow: 0 0 30px rgba(29, 185, 84, 0.6);
-        }
-
+        .album-art-container { position: relative; width: 200px; height: 200px; margin-bottom: 20px; }
+        .album-art { width: 100%; height: 100%; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); transition: all 0.4s ease; background-color: #333; }
+        .main-player.playing .album-art { animation: spin 20s linear infinite; box-shadow: 0 0 30px rgba(29, 185, 84, 0.6); }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
         h2 { font-size: 18px; font-weight: 600; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         p { color: #ccc; font-size: 13px; margin-bottom: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 
-        .progress-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 11px;
-            color: #ccc;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 350px;
-        }
+        .progress-container { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #ccc; margin-bottom: 20px; width: 100%; max-width: 350px; }
+        input[type="range"] { -webkit-appearance: none; width: 70%; height: 6px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; outline: none; cursor: pointer; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: #1DB954; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px rgba(29, 185, 84, 0.8); }
 
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 70%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            outline: none;
-            cursor: pointer;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 14px;
-            height: 14px;
-            background: #1DB954;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(29, 185, 84, 0.8);
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .btn-control {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: white;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+        .controls { display: flex; justify-content: center; align-items: center; gap: 25px; }
+        .btn-control { background: none; border: none; cursor: pointer; color: white; transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; }
         .btn-control svg { width: 32px; height: 32px; fill: currentColor; }
         .btn-control:hover { color: #1DB954; transform: scale(1.1); }
-
         .btn-play svg { width: 50px; height: 50px; }
-
-        .btn-play {
-            background: white;
-            color: #121212;
-            border-radius: 50%;
-            padding: 8px;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-        }
-
+        .btn-play { background: white; color: #121212; border-radius: 50%; padding: 8px; box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); }
         .btn-play:hover { color: #121212; background: #1DB954; transform: scale(1.05); }
 
-        /* --- COLUMNA DERECHA: ESPACIO LIBRE --- */
-        .right-space {
+        /* --- COLUMNA DERECHA: CHAT --- */
+        .chat-sidebar {
             flex: 1; 
-            border: 2px dashed rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .chat-header h3 { font-size: 14px; font-weight: 600; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+        .chat-header p { font-size: 12px; color: #1DB954; margin-top: 5px; }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .chat-messages::-webkit-scrollbar { width: 6px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #1DB954; border-radius: 10px; }
+        .chat-messages::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 15px 15px 15px 0;
+            max-width: 85%;
+            align-self: flex-start;
+            animation: fadeIn 0.3s ease;
+        }
+        .message.own {
+            background: rgba(29, 185, 84, 0.3);
+            border-radius: 15px 15px 0 15px;
+            align-self: flex-end;
+        }
+        .message .author { font-size: 11px; font-weight: 600; color: #1DB954; margin-bottom: 3px; }
+        .message .text { font-size: 13px; color: #eee; line-height: 1.4; }
+        .message .time { font-size: 10px; color: #888; margin-top: 5px; text-align: right; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .chat-input-area {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input-area input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            outline: none;
+            transition: border 0.3s;
+        }
+        .chat-input-area input:focus { border-color: #1DB954; }
+        .chat-input-area button {
+            background: #1DB954;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 16px;
-            text-align: center;
-            padding: 20px;
+            transition: transform 0.2s;
         }
+        .chat-input-area button:hover { transform: scale(1.1); }
+        .chat-input-area button svg { width: 20px; height: 20px; fill: white; }
 
-        /* =========================================================
-           DISEÑO RESPONSIVO (MÓVIL)
-           Esto se activa cuando la pantalla mide menos de 768px
-           ========================================================= */
-        @media (max-width: 768px) {
-            body {
-                height: auto;
-                overflow-y: auto; /* Permite scroll en el celular */
-                padding: 10px;
-                align-items: flex-start;
-            }
-
-            .app-wrapper {
-                flex-direction: column; /* Apilamos todo verticalmente */
-                height: auto;
-                gap: 15px;
-            }
-
-            /* 1. El reproductor sube al principio */
-            .main-player {
-                order: -1; 
-                flex: none;
-                width: 100%;
-                padding: 20px;
-                min-height: 450px;
-            }
-
-            /* Quitamos el posicionamiento absoluto de los géneros */
-            .genre-bar {
-                position: static;
-                margin-bottom: 20px;
-                width: 100%;
-            }
-
-            .player-section {
-                margin-top: 0; 
-            }
-
-            /* 2. La playlist baja abajo */
-            .playlist-sidebar {
-                order: 1;
-                width: 100%;
-                max-height: 300px; /* Le ponemos un límite para que no crezca infinito */
-            }
-
-            /* 3. Ocultamos el espacio vacío en el celular para ahorrar espacio */
-            .right-space {
-                display: none;
-            }
-
-            /* Ajustamos un poco los tamaños para que quepan mejor */
-            .album-art-container {
-                width: 180px;
-                height: 180px;
-            }
-            h2 { font-size: 16px; }
-            p { font-size: 12px; }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1100px) {
+            body { height: auto; overflow-y: auto; padding: 10px; align-items: flex-start; }
+            .app-wrapper { flex-direction: column; height: auto; gap: 15px; }
+            .main-player { order: -1; flex: none; width: 100%; padding: 20px; min-height: 450px; }
+            .genre-bar { position: static; margin-bottom: 20px; width: 100%; }
+            .player-section { margin-top: 0; }
+            .playlist-sidebar { order: 1; width: 100%; max-height: 300px; }
+            .chat-sidebar { order: 2; width: 100%; min-height: 400px; max-height: 500px; }
+            .album-art-container { width: 180px; height: 180px; }
         }
     </style>
 </head>
@@ -351,7 +229,7 @@
 
     <div class="app-wrapper">
         
-        <!-- IZQUIERDA: Playlist (Scrollable) -->
+        <!-- IZQUIERDA: Playlist -->
         <div class="playlist-sidebar">
             <h3>Playlist</h3>
             <div class="playlist-container" id="playlist-container">
@@ -361,8 +239,6 @@
 
         <!-- CENTRO: Reproductor -->
         <div class="main-player" id="app-container">
-            
-            <!-- BARRA DE GÉNEROS -->
             <div class="genre-bar" id="genre-bar">
                 <button class="genre-pill active" data-genre="pop">🎤 Pop</button>
                 <button class="genre-pill" data-genre="rock">🎸 Rock</button>
@@ -377,40 +253,40 @@
                 <button class="genre-pill" data-genre="latin">🌎 Latina</button>
             </div>
 
-            <!-- REPRODUCTOR -->
             <div class="player-section">
                 <div class="album-art-container">
                     <img src="" alt="Portada" class="album-art" id="album-art">
                 </div>
-                
                 <h2 id="song-title">Cargando...</h2>
                 <p id="artist-name">Conectando a Jamendo</p>
-                
                 <div class="progress-container">
                     <span id="current-time">0:00</span>
                     <input type="range" id="progress-bar" value="0" min="0" max="100" step="1">
                     <span id="duration">0:00</span>
                 </div>
-                
                 <div class="controls">
-                    <button class="btn-control" id="prev-btn">
-                        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
-                    </button>
-                    
-                    <button class="btn-control btn-play" id="play-btn">
-                        <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </button>
-                    
-                    <button class="btn-control" id="next-btn">
-                        <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-                    </button>
+                    <button class="btn-control" id="prev-btn"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+                    <button class="btn-control btn-play" id="play-btn"><svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                    <button class="btn-control" id="next-btn"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
                 </div>
             </div>
         </div>
 
-        <!-- DERECHA: Espacio libre para tus ideas -->
-        <div class="right-space">
-            <p>✨ Espacio reservado para tus ideas ✨</p>
+        <!-- DERECHA: Chat de Comentarios -->
+        <div class="chat-sidebar">
+            <div class="chat-header">
+                <h3>💬 Comentarios</h3>
+                <p id="chat-song-title">Selecciona una canción</p>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Los mensajes aparecerán aquí -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Escribe un comentario...">
+                <button id="chat-send-btn">
+                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
         </div>
 
     </div>
@@ -422,8 +298,8 @@
         let playlist = [];
         let songIndex = 0;
         let currentGenre = 'pop';
+        let currentSongId = null;
 
-        // Elementos
         const audio = document.getElementById('audio-player');
         const appContainer = document.getElementById('app-container');
         const playBtn = document.getElementById('play-btn');
@@ -438,22 +314,68 @@
         const durationEl = document.getElementById('duration');
         const genreBar = document.getElementById('genre-bar');
         const playlistContainer = document.getElementById('playlist-container');
+        
+        // Elementos del chat
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendBtn = document.getElementById('chat-send-btn');
+        const chatSongTitle = document.getElementById('chat-song-title');
 
         const playPath = "M8 5v14l11-7z";
         const pausePath = "M6 19h4V5H6v14zm8-14v14h4V5h-4z";
 
-        // --- SCROLL CON LA RUEDA DEL RATÓN ---
         genreBar.addEventListener('wheel', (e) => {
-            if (e.deltaY !== 0) {
-                e.preventDefault();
-                genreBar.scrollLeft += e.deltaY;
-            }
+            if (e.deltaY !== 0) { e.preventDefault(); genreBar.scrollLeft += e.deltaY; }
         });
 
-        // --- FUNCIÓN PARA DIBUJAR LA LISTA DE CANCIONES ---
+        // --- LÓGICA DEL CHAT ---
+        function renderChat(songId) {
+            chatMessages.innerHTML = '';
+            const comments = JSON.parse(localStorage.getItem(`chat_${songId}`)) || [];
+
+            if (comments.length === 0) {
+                chatMessages.innerHTML = '<div style="color:#aaa; font-size:12px; text-align:center; margin-top:20px;">Aún no hay comentarios.<br>¡Sé el primero en opinar!</div>';
+                return;
+            }
+
+            comments.forEach(msg => {
+                const msgDiv = document.createElement('div');
+                msgDiv.classList.add('message');
+                if (msg.author === 'Tú') msgDiv.classList.add('own');
+                
+                msgDiv.innerHTML = `
+                    <div class="author">${msg.author}</div>
+                    <div class="text">${msg.text}</div>
+                    <div class="time">${msg.time}</div>
+                `;
+                chatMessages.appendChild(msgDiv);
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text || !currentSongId) return;
+
+            const comments = JSON.parse(localStorage.getItem(`chat_${currentSongId}`)) || [];
+            const now = new Date();
+            const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+            comments.push({ author: 'Tú', text: text, time: timeString });
+            localStorage.setItem(`chat_${currentSongId}`, JSON.stringify(comments));
+            
+            chatInput.value = '';
+            renderChat(currentSongId);
+        }
+
+        chatSendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // --- FUNCIONES DE LA MÚSICA ---
         function renderPlaylist() {
             playlistContainer.innerHTML = ''; 
-
             if (playlist.length === 0) {
                 playlistContainer.innerHTML = '<div style="color:#aaa; font-size:12px; padding:10px;">No hay canciones</div>';
                 return;
@@ -473,20 +395,13 @@
                 `;
 
                 item.addEventListener('click', () => {
-                    if (index === songIndex) {
-                        togglePlay(); 
-                    } else {
-                        songIndex = index;
-                        loadSong(playlist[songIndex]);
-                        playSong();
-                    }
+                    if (index === songIndex) { togglePlay(); } 
+                    else { songIndex = index; loadSong(playlist[songIndex]); playSong(); }
                 });
-
                 playlistContainer.appendChild(item);
             });
         }
 
-        // --- FUNCIÓN PARA CARGAR MÚSICA POR GÉNERO ---
         async function cargarMusicaPorGenero(genre) {
             songTitle.innerText = "Cargando...";
             artistName.innerText = `Buscando en ${genre}...`;
@@ -500,6 +415,7 @@
             currentTimeEl.innerText = "0:00";
             durationEl.innerText = "0:00";
             playlistContainer.innerHTML = '<div style="color:#aaa; font-size:12px; padding:10px;">Buscando canciones...</div>';
+            chatMessages.innerHTML = '<div style="color:#aaa; font-size:12px; text-align:center; margin-top:20px;">Cargando chat...</div>';
 
             try {
                 const url = `https://api.jamendo.com/v3.0/tracks/?client_id=${clientId}&format=json&limit=15&order=popularity_total&audioformat=mp32&tags=${encodeURIComponent(genre)}`;
@@ -508,12 +424,12 @@
 
                 if (datos.results && datos.results.length > 0) {
                     playlist = datos.results.map(cancion => ({
+                        id: cancion.id, // Guardamos el ID de la canción
                         title: cancion.name,
                         artist: cancion.artist_name,
                         src: cancion.audio,
                         art: cancion.image || 'https://via.placeholder.com/300x300/333/fff?text=Sin+Portada'
                     }));
-
                     songIndex = 0;
                     renderPlaylist(); 
                     loadSong(playlist[songIndex]); 
@@ -526,11 +442,9 @@
                 console.error("Error:", error);
                 songTitle.innerText = "Error de conexión";
                 artistName.innerText = "Revisa tu internet";
-                playlistContainer.innerHTML = '<div style="color:#aaa; font-size:12px; padding:10px;">Error de conexión</div>';
             }
         }
 
-        // --- FUNCIONES DEL REPRODUCTOR ---
         function formatTime(seconds) {
             if (isNaN(seconds)) return "0:00";
             const minutes = Math.floor(seconds / 60);
@@ -539,6 +453,7 @@
         }
 
         function loadSong(song) {
+            currentSongId = song.id; // Guardamos el ID de la canción actual
             songTitle.innerText = song.title;
             artistName.innerText = song.artist;
             audio.src = song.src;
@@ -547,12 +462,13 @@
             currentTimeEl.innerText = "0:00";
             durationEl.innerText = "0:00";
             
+            // Actualizamos el chat para que muestre los mensajes de esta canción
+            chatSongTitle.innerText = song.title;
+            renderChat(song.id);
+
             document.querySelectorAll('.playlist-item').forEach((item, index) => {
-                if (index === songIndex) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
+                if (index === songIndex) { item.classList.add('active'); } 
+                else { item.classList.remove('active'); }
             });
         }
 
@@ -589,14 +505,11 @@
             playSong();
         }
 
-        // --- LISTENERS ---
         genreBar.addEventListener('click', (e) => {
             const pill = e.target.closest('.genre-pill');
             if (!pill || pill.classList.contains('active')) return;
-
             document.querySelectorAll('.genre-pill').forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
-
             currentGenre = pill.dataset.genre;
             cargarMusicaPorGenero(currentGenre);
         });
@@ -609,24 +522,14 @@
             }
         });
 
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.innerText = formatTime(audio.duration);
-        });
-
-        progressBar.addEventListener('input', () => {
-            const seekTime = (progressBar.value / 100) * audio.duration;
-            audio.currentTime = seekTime;
-        });
-
+        audio.addEventListener('loadedmetadata', () => { durationEl.innerText = formatTime(audio.duration); });
+        progressBar.addEventListener('input', () => { audio.currentTime = (progressBar.value / 100) * audio.duration; });
         audio.addEventListener('ended', nextSong);
         playBtn.addEventListener('click', togglePlay);
         nextBtn.addEventListener('click', nextSong);
         prevBtn.addEventListener('click', prevSong);
 
-        // --- ARRANCAR ---
         cargarMusicaPorGenero(currentGenre);
-
     </script>
-
 </body>
 </html>
