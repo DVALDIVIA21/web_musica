@@ -14,10 +14,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             color: white;
             padding: 20px;
-            overflow: hidden;
         }
 
         /* --- CONTENEDOR PRINCIPAL DE 3 COLUMNAS --- */
@@ -25,9 +24,9 @@
             display: flex;
             gap: 20px;
             width: 100%;
+            max-width: 1400px;
             height: 90vh;
             align-items: stretch;
-            /* CAMBIO 1: Alineamos todo al inicio (izquierda) */
             justify-content: flex-start; 
         }
 
@@ -119,7 +118,6 @@
 
         /* --- COLUMNA CENTRAL: REPRODUCTOR --- */
         .main-player {
-            /* CAMBIO 2: Le damos un ancho fijo y evitamos que crezca */
             flex: 0 0 450px; 
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
@@ -277,7 +275,6 @@
 
         /* --- COLUMNA DERECHA: ESPACIO LIBRE --- */
         .right-space {
-            /* CAMBIO 3: Le damos flex: 1 para que absorba TODO el espacio sobrante */
             flex: 1; 
             border: 2px dashed rgba(255, 255, 255, 0.15);
             border-radius: 30px;
@@ -290,12 +287,63 @@
             padding: 20px;
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1100px) {
-            .app-wrapper { flex-direction: column; height: auto; }
-            .playlist-sidebar { width: 100%; max-height: 250px; }
-            .main-player { flex: 0 0 auto; width: 100%; }
-            .right-space { width: 100%; height: 200px; }
+        /* =========================================================
+           DISEÑO RESPONSIVO (MÓVIL)
+           Esto se activa cuando la pantalla mide menos de 768px
+           ========================================================= */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                overflow-y: auto; /* Permite scroll en el celular */
+                padding: 10px;
+                align-items: flex-start;
+            }
+
+            .app-wrapper {
+                flex-direction: column; /* Apilamos todo verticalmente */
+                height: auto;
+                gap: 15px;
+            }
+
+            /* 1. El reproductor sube al principio */
+            .main-player {
+                order: -1; 
+                flex: none;
+                width: 100%;
+                padding: 20px;
+                min-height: 450px;
+            }
+
+            /* Quitamos el posicionamiento absoluto de los géneros */
+            .genre-bar {
+                position: static;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+
+            .player-section {
+                margin-top: 0; 
+            }
+
+            /* 2. La playlist baja abajo */
+            .playlist-sidebar {
+                order: 1;
+                width: 100%;
+                max-height: 300px; /* Le ponemos un límite para que no crezca infinito */
+            }
+
+            /* 3. Ocultamos el espacio vacío en el celular para ahorrar espacio */
+            .right-space {
+                display: none;
+            }
+
+            /* Ajustamos un poco los tamaños para que quepan mejor */
+            .album-art-container {
+                width: 180px;
+                height: 180px;
+            }
+            h2 { font-size: 16px; }
+            p { font-size: 12px; }
         }
     </style>
 </head>
